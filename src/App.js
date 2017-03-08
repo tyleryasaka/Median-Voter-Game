@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      candidates: [25, 50, 75],
+      candidates: [25, 50],
       max: 100
     };
   }
@@ -89,18 +89,37 @@ class App extends Component {
     this.setState({candidates});
   }
 
+  candidatesToRender() {
+    return this.state.candidates.map((candidate, index) => {
+      let position = candidate;
+      let result = this.collectVotes(this.state.candidates, candidate);
+      let start = result.start;
+      let votes = result.sharedVotes;
+      let height = result.tied ? 1 / result.tied : 1;
+      let isDominantStrategy = this.isDominantStrategy(this.state.candidates, index, result.individualVotes);
+      return {position, result, start, votes, height, isDominantStrategy};
+    });
+  }
+
+  isInEquilibrium(candidates) {
+    return candidates.filter(candidate => {
+      return candidate.isDominantStrategy;
+    }).length === candidates.length;
+  }
+
   render() {
+    let candidates = this.candidatesToRender();
+    let isInEquilibrium = String(this.isInEquilibrium(candidates));
     return (
       <div className="App">
+        <h3>
+          Is in equilibrium? {isInEquilibrium}
+        </h3>
         {
-          this.state.candidates.map((candidate, index) => {
-            let result = this.collectVotes(this.state.candidates, candidate);
-            let start = result.start;
-            let votes = result.sharedVotes;
-            let height = result.tied ? 1 / result.tied : 1;
+          candidates.map((candidate, index) => {
             let max = this.state.max;
-            let isDominantStrategy = this.isDominantStrategy(this.state.candidates, index, result.individualVotes);
-            return (<Voters key={index} index={index} position={candidate} start={start} votes={votes} isDominantStrategy={isDominantStrategy} height={height} max={max} step="" onChange={this.changePosition.bind(this)} />);
+            let step = 1;
+            return (<Voters key={index} index={index} position={candidate.position} start={candidate.start} votes={candidate.votes} isDominantStrategy={candidate.isDominantStrategy} height={candidate.height} max={max} step={step} onChange={this.changePosition.bind(this)} />);
           })
         }
       </div>
