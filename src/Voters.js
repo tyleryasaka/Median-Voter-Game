@@ -9,13 +9,13 @@ class Voters extends Component {
 
   render() {
     let style = {
-      width: String(this.props.votes) + "%",
+      width: String(this.props.sharedVotes) + "%",
       height: String(this.props.height * barHeight) + "px",
       marginLeft: String(this.props.start) + "%"
     };
     let max = this.props.max;
     let step = this.props.step;
-    let votes = Math.round(this.props.votes);
+    let votes = Math.round(this.props.individualVotes);
     let isBestStrategy = String(this.props.isDominantStrategy);
     return (
       <div>

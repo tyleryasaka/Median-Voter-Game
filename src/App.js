@@ -94,10 +94,11 @@ class App extends Component {
       let position = candidate;
       let result = this.collectVotes(this.state.candidates, candidate);
       let start = result.start;
-      let votes = result.sharedVotes;
+      let sharedVotes = result.sharedVotes;
+      let individualVotes = result.individualVotes;
       let height = result.tied ? 1 / result.tied : 1;
       let isDominantStrategy = this.isDominantStrategy(this.state.candidates, index, result.individualVotes);
-      return {position, result, start, votes, height, isDominantStrategy};
+      return {position, result, start, sharedVotes, individualVotes, height, isDominantStrategy};
     });
   }
 
@@ -119,7 +120,7 @@ class App extends Component {
           candidates.map((candidate, index) => {
             let max = this.state.max;
             let step = 1;
-            return (<Voters key={index} index={index} position={candidate.position} start={candidate.start} votes={candidate.votes} isDominantStrategy={candidate.isDominantStrategy} height={candidate.height} max={max} step={step} onChange={this.changePosition.bind(this)} />);
+            return (<Voters key={index} index={index} position={candidate.position} start={candidate.start} sharedVotes={candidate.sharedVotes} individualVotes={candidate.individualVotes} isDominantStrategy={candidate.isDominantStrategy} height={candidate.height} max={max} step={step} onChange={this.changePosition.bind(this)} />);
           })
         }
       </div>
