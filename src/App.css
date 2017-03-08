@@ -1,0 +1,24 @@
+.all-voters {
+  width: 700px;
+  height: 50px;
+  background: grey;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.selected-voters {
+  position: absolute;
+  bottom: 0;
+  background: yellow;
+}
+
+.position-display {
+  width: 700px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+input[type=range] {
+  width: 700px;
+}
