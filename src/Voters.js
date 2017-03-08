@@ -15,7 +15,7 @@ class Voters extends Component {
     };
     let max = this.props.max;
     let step = this.props.step;
-    let votes = Math.round(this.props.individualVotes);
+    let votes = this.props.individualVotes.toFixed(2);
     let isBestStrategy = String(this.props.isDominantStrategy);
     return (
       <div>
