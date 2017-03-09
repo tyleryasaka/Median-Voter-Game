@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      candidates: [25, 50],
+      candidates: [0, 0],
       max: 100
     };
   }
