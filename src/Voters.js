@@ -7,15 +7,21 @@ class Voters extends Component {
     super(props);
   }
 
+  asPercent(value, total) {
+    return (value / total) * 100;
+  }
+
   render() {
-    let style = {
-      width: String(this.props.sharedVotes) + "%",
-      height: String(this.props.height * barHeight) + "px",
-      marginLeft: String(this.props.start) + "%"
-    };
     let max = this.props.max;
+    let sharedPercent = this.asPercent(this.props.sharedVotes, max);
+    let individualPercent = this.asPercent(this.props.individualVotes, max);
+    let style = {
+      width: String(sharedPercent) + "%",
+      height: String(this.props.height * barHeight) + "px",
+      marginLeft: String(this.asPercent(this.props.start, max)) + "%"
+    };
     let step = this.props.step;
-    let votes = this.props.individualVotes.toFixed(2);
+    let votes = individualPercent.toFixed(2);
     let isBestStrategy = String(this.props.isDominantStrategy);
     return (
       <div>
