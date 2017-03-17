@@ -108,6 +108,21 @@ class App extends Component {
     }).length === candidates.length;
   }
 
+  updateNumCandidates(e) {
+    let newValue = e.target.value;
+    if(newValue > 0) {
+      this.resetCandidates(newValue);
+    }
+  }
+
+  resetCandidates(count) {
+    let candidates = [];
+    for(var i = 0; i < count; i++) {
+      candidates.push(0);
+    }
+    this.setState({candidates});
+  }
+
   render() {
     let candidates = this.candidatesToRender();
     let isInEquilibrium = String(this.isInEquilibrium(candidates));
@@ -116,6 +131,8 @@ class App extends Component {
         <h3>
           Is in equilibrium? {isInEquilibrium}
         </h3>
+        Number of candidates:&nbsp;
+        <input type="number" min="1" max="32" onChange={this.updateNumCandidates.bind(this)} defaultValue="2" />
         {
           candidates.map((candidate, index) => {
             let max = this.state.max;
