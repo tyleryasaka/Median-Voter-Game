@@ -159,9 +159,9 @@ class App extends Component {
         <div className="about">
           <h3>About this widget</h3>
           <p>
-            The purpose of this widget is to provide a visual aid for intuitive reasoning about a concept known as the median voter theorem.
+            The purpose of this widget is to provide a visual aid for intuitive reasoning about a concept known as the <em>median voter theorem</em>.
             &nbsp;<a href="https://en.wikipedia.org/wiki/Median_voter_theorem">Wikipedia</a> provides some information about the concept.
-            This particular widget pertains to a game theoretic analysis of this concept. The game portrayed here is described as follows:
+            This particular widget pertains to a <a href="https://en.wikipedia.org/wiki/Game_theory">game theoretic</a> analysis of this concept. The game portrayed here is described as follows:
           </p>
           <ul>
             <li>The candidates are the players, and they are competing for votes.</li>

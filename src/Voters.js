@@ -33,9 +33,9 @@ class Voters extends Component {
         </div>
         <input type="range" defaultValue={this.props.position} max={max} step={step} onChange={this.props.onChange.bind(this, this.props.index)}/>
         <div className="position-display">
-          Position: {this.props.position}<br />
-          Votes: {votes}%<br />
-        Best strategy? <span style={strategyStyle}>{strategySymbol}</span>
+          Position: <span className="position-display-value">{this.props.position}</span><br />
+          Votes: <span className="position-display-value">{votes}%</span><br />
+          Best strategy? <span style={strategyStyle}>{strategySymbol}</span>
         </div>
       </div>
     );

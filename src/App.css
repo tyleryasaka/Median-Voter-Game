@@ -1,10 +1,10 @@
 body {
   background: #181818;
-  color: #fff;
+  color: #aaa;
 }
 
 a {
-  color: #fff;
+  color: #aaa;
 }
 
 .App {
@@ -27,12 +27,17 @@ a {
 .selected-voters {
   position: absolute;
   bottom: 0;
-  background: #fff;
+  background: #b168ff;
 }
 
 .position-display {
   width: 100%;
   margin-top: 5px;
+  color: #aaa;
+}
+
+.position-display-value {
+  color: #b168ff;
 }
 
 input[type=range] {
@@ -46,7 +51,7 @@ input[type=range] {
 }
 
 .about {
-  background: #333;
+  background: #282828;
   padding: 25px;
   margin-top: 50px;
 }
