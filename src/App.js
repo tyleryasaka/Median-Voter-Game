@@ -138,7 +138,7 @@ class App extends Component {
     let equilibriumStyle = {color: equilibriumColor};
     return (
       <div className="App">
-        <h3>
+        <h3 className="equilibrium">
           Equilibrium?&nbsp;
           <span style={equilibriumStyle}>{equilibriumSymbol}</span>
         </h3>
@@ -156,6 +156,27 @@ class App extends Component {
             return (<Voters key={index} index={index} position={candidate.position} start={candidate.start} sharedVotes={candidate.sharedVotes} individualVotes={candidate.individualVotes} isDominantStrategy={candidate.isDominantStrategy} height={candidate.height} max={max} step={step} onChange={this.changePosition.bind(this)} />);
           })
         }
+        <div className="about">
+          <h3>About this widget</h3>
+          <p>
+            The purpose of this widget is to provide a visual aid for intuitive reasoning about a concept known as the median voter theorem.
+            &nbsp;<a href="https://en.wikipedia.org/wiki/Median_voter_theorem">Wikipedia</a> provides some information about the concept.
+            This particular widget pertains to a game theoretic analysis of this concept. The game portrayed here is described as follows:
+          </p>
+          <ul>
+            <li>The candidates are the players, and they are competing for votes.</li>
+            <li>Each candidate is attempting to maximize the number of votes she receives.</li>
+            <li>Each voter votes for the candidate which is closest to his position.</li>
+            <li>The voters are assumed to be equally distributed along a one-dimensional political spectrum.</li>
+          </ul>
+          <p>
+            An analysis of this game reveals that the solution depends on the number of candidates involved, and that there may not be an equilibrium at all (for example, when there are 3 candidates).
+            It's worth noting that this is a very simplistic model and it is probably more of mathematical interest than practical use.
+          </p>
+          <p>
+            Go ahead, try it out! See if you can find an equilibrium in the 2-candidate game, and then try increasing the number of candidates.
+          </p>
+        </div>
       </div>
     );
   }
