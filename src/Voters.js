@@ -22,7 +22,10 @@ class Voters extends Component {
     };
     let step = this.props.step;
     let votes = individualPercent.toFixed(2);
-    let isBestStrategy = String(this.props.isDominantStrategy);
+    let isBestStrategy = this.props.isDominantStrategy;
+    let strategySymbol = isBestStrategy ? '✓' : '✕';
+    let strategyColor = isBestStrategy ? '#2ded2a' : '#ed3629';
+    let strategyStyle = {color: strategyColor};
     return (
       <div>
         <div className="all-voters">
@@ -32,7 +35,7 @@ class Voters extends Component {
         <div className="position-display">
           Position: {this.props.position}<br />
           Votes: {votes}%<br />
-          Best strategy: {isBestStrategy}
+        Best strategy? <span style={strategyStyle}>{strategySymbol}</span>
         </div>
       </div>
     );
