@@ -123,6 +123,13 @@ class App extends Component {
     this.setState({candidates});
   }
 
+  updatePrecision(e) {
+    let newValue = e.target.value;
+    if(newValue > 0) {
+      this.setState({max: newValue});
+    }
+  }
+
   render() {
     let candidates = this.candidatesToRender();
     let isInEquilibrium = String(this.isInEquilibrium(candidates));
@@ -133,6 +140,9 @@ class App extends Component {
         </h3>
         Number of candidates:&nbsp;
         <input type="number" min="1" max="32" onChange={this.updateNumCandidates.bind(this)} defaultValue="2" />
+        <br />
+        Precision:&nbsp;
+        <input type="number" min="1" max="1000" onChange={this.updatePrecision.bind(this)} defaultValue="100" />
         {
           candidates.map((candidate, index) => {
             let max = this.state.max;
