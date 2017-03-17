@@ -132,11 +132,15 @@ class App extends Component {
 
   render() {
     let candidates = this.candidatesToRender();
-    let isInEquilibrium = String(this.isInEquilibrium(candidates));
+    let isInEquilibrium = this.isInEquilibrium(candidates);
+    let equilibriumSymbol = isInEquilibrium ? '✓' : '✕';
+    let equilibriumColor = isInEquilibrium ? '#2ded2a' : '#ed3629';
+    let equilibriumStyle = {color: equilibriumColor};
     return (
       <div className="App">
         <h3>
-          Is in equilibrium? {isInEquilibrium}
+          Equilibrium?&nbsp;
+          <span style={equilibriumStyle}>{equilibriumSymbol}</span>
         </h3>
         <div className="settings">
           Number of candidates:&nbsp;
