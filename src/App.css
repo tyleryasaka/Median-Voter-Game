@@ -34,3 +34,9 @@ h3 {
 input[type=range] {
   width: 100%;
 }
+
+.settings {
+  display: inline-block;
+  padding: 25px;
+  background: #333;
+}

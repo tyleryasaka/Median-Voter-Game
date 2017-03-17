@@ -138,7 +138,7 @@ class App extends Component {
         <h3>
           Is in equilibrium? {isInEquilibrium}
         </h3>
-        <div class="settings">
+        <div className="settings">
           Number of candidates:&nbsp;
           <input type="number" min="1" max="32" onChange={this.updateNumCandidates.bind(this)} defaultValue="2" />
           <br />
