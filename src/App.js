@@ -138,11 +138,13 @@ class App extends Component {
         <h3>
           Is in equilibrium? {isInEquilibrium}
         </h3>
-        Number of candidates:&nbsp;
-        <input type="number" min="1" max="32" onChange={this.updateNumCandidates.bind(this)} defaultValue="2" />
-        <br />
-        Precision:&nbsp;
-        <input type="number" min="1" max="1000" onChange={this.updatePrecision.bind(this)} defaultValue="100" />
+        <div class="settings">
+          Number of candidates:&nbsp;
+          <input type="number" min="1" max="32" onChange={this.updateNumCandidates.bind(this)} defaultValue="2" />
+          <br />
+          Precision:&nbsp;
+          <input type="number" min="1" max="1000" onChange={this.updatePrecision.bind(this)} defaultValue="100" />
+        </div>
         {
           candidates.map((candidate, index) => {
             let max = this.state.max;
